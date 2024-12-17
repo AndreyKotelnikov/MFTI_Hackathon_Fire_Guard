@@ -3,6 +3,7 @@ from api import serializers as api_serializers
 
 from core.models import LearnigModel
 from core.models import Investigation
+from core.models import InvestigationValue
 
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
@@ -30,30 +31,44 @@ class InvestigationViewSet(ModelViewSet):
     http_method_names = ['post', 'head', 'options']
 
     def create(self, request, **kwargs):
-        value = 0
-        message = ''
+        values_for_all_models = []
         serializer = api_serializers.InvestigationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         investigation = serializer.save()
 
-        if investigation.lmodel.code == 'wildfire-satellite-roboflow-yolov8n':
-            value, message = wildfire_satellite_roboflow_yolov8n(investigation.lmodel.model_file.path, investigation.photo.path)
+        # Передаём фото для обработки всем имеющимся моделям
+        for lmodel in LearnigModel.objects.all():
+            value = None
+            message = ''
 
-        elif investigation.lmodel.code == 'semushina-yolov8n':
-            value, message = semushina_yolov8n(investigation.lmodel.model_file.path, investigation.photo.path)
+            if lmodel.code == 'wildfire-satellite-roboflow-yolov8n':
+                value, message = wildfire_satellite_roboflow_yolov8n(lmodel.model_file.path, investigation.photo.path)
 
-        elif investigation.lmodel.code == 'forest-fire-KaterinaKuhne-yolov8n-cls':
-            value, message = forest_fire_KaterinaKuhne_yolov8n_cls(investigation.lmodel.model_file.path, investigation.photo.path)
+            elif lmodel.code == 'semushina-yolov8n':
+                value, message = semushina_yolov8n(lmodel.model_file.path, investigation.photo.path)
 
-        elif investigation.lmodel.code == 'Katrin-Pochtar-Wildfire-keras':
-            value, message = Katrin_Pochtar_Wildfire_keras(investigation.lmodel.model_file.path, investigation.photo.path)
+            elif lmodel.code == 'forest-fire-KaterinaKuhne-yolov8n-cls':
+                value, message = forest_fire_KaterinaKuhne_yolov8n_cls(lmodel.model_file.path, investigation.photo.path)
 
-        elif investigation.lmodel.code == 'AndreyKotelnikov-resnet18_finetuned':
-            value, message = AndreyKotelnikov_resnet18_finetuned(investigation.lmodel.model_file.path, investigation.photo.path)
+            elif lmodel.code == 'Katrin-Pochtar-Wildfire-keras':
+                value, message = Katrin_Pochtar_Wildfire_keras(lmodel.model_file.path, investigation.photo.path)
 
-        investigation.value = value
-        investigation.result = message
-        investigation.save()
+            elif lmodel.code == 'AndreyKotelnikov-resnet18_finetuned':
+                value, message = AndreyKotelnikov_resnet18_finetuned(lmodel.model_file.path, investigation.photo.path)
+            
+            if value is not None:
+                InvestigationValue.objects.create(
+                    lmodel = lmodel,
+                    investigation = investigation,
+                    value = value,
+                    message = message
+                )
+                values_for_all_models.append(value)
+
+        # Считаем среднее значение по всем моделям
+        if len(values_for_all_models):
+            investigation.value_mean = sum(values_for_all_models) / len(values_for_all_models)
+            investigation.save()
         
         serializer = api_serializers.InvestigationSerializer(investigation)
         return Response(serializer.data, status=HTTP_201_CREATED)
