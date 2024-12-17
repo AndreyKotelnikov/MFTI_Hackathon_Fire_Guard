@@ -1,7 +1,7 @@
 from django.db import models
 from urllib.parse import unquote
 from django.utils import timezone
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class LearnigModel(models.Model):
 
@@ -29,6 +29,7 @@ class Investigation(models.Model):
     photo = models.ImageField(verbose_name="Исследуемое фото", upload_to='photos')
     photo_out = models.ImageField(verbose_name="Фото-результат", upload_to='photos_out')
     result = models.TextField(verbose_name="Результат", null=False, blank=True)
+    value = models.PositiveIntegerField(verbose_name="Вероятность", default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(100)])
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
