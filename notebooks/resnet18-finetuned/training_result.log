@@ -1,0 +1,82 @@
+Using device: cuda
+Training 2 classes with 50 epochs, learning rate: 0.001, batch size: 256
+
+Training and evaluating model: resnet18
+Epoch [1/50] - Loss: 0.1203, Train Acc: 0.9562, Val Acc: 0.8815
+Epoch [2/50] - Loss: 0.0686, Train Acc: 0.9754, Val Acc: 0.9634
+Epoch [3/50] - Loss: 0.0473, Train Acc: 0.9842, Val Acc: 0.9572
+Epoch [4/50] - Loss: 0.0398, Train Acc: 0.9859, Val Acc: 0.9513
+Epoch [5/50] - Loss: 0.0312, Train Acc: 0.9892, Val Acc: 0.9536
+Epoch [6/50] - Loss: 0.0252, Train Acc: 0.9921, Val Acc: 0.9536
+Epoch [7/50] - Loss: 0.0235, Train Acc: 0.9923, Val Acc: 0.9730
+Epoch [8/50] - Loss: 0.0164, Train Acc: 0.9947, Val Acc: 0.9548
+Epoch [9/50] - Loss: 0.0162, Train Acc: 0.9948, Val Acc: 0.9762
+Epoch [10/50] - Loss: 0.0176, Train Acc: 0.9942, Val Acc: 0.9350
+Epoch [11/50] - Loss: 0.0189, Train Acc: 0.9935, Val Acc: 0.9806
+Epoch [12/50] - Loss: 0.0122, Train Acc: 0.9961, Val Acc: 0.9683
+Epoch [13/50] - Loss: 0.0103, Train Acc: 0.9966, Val Acc: 0.9854
+Epoch [14/50] - Loss: 0.0104, Train Acc: 0.9967, Val Acc: 0.9779
+Epoch [15/50] - Loss: 0.0092, Train Acc: 0.9968, Val Acc: 0.9818
+Epoch [16/50] - Loss: 0.0132, Train Acc: 0.9959, Val Acc: 0.9613
+Epoch [17/50] - Loss: 0.0089, Train Acc: 0.9967, Val Acc: 0.9589
+Epoch [18/50] - Loss: 0.0109, Train Acc: 0.9963, Val Acc: 0.9839
+Epoch [19/50] - Loss: 0.0094, Train Acc: 0.9971, Val Acc: 0.9689
+Epoch [20/50] - Loss: 0.0105, Train Acc: 0.9966, Val Acc: 0.9682
+Epoch [21/50] - Loss: 0.0061, Train Acc: 0.9979, Val Acc: 0.9799
+Epoch [22/50] - Loss: 0.0100, Train Acc: 0.9968, Val Acc: 0.9769
+Epoch [23/50] - Loss: 0.0074, Train Acc: 0.9973, Val Acc: 0.9802
+Epoch [24/50] - Loss: 0.0060, Train Acc: 0.9982, Val Acc: 0.9733
+Epoch [25/50] - Loss: 0.0085, Train Acc: 0.9968, Val Acc: 0.9756
+Epoch [26/50] - Loss: 0.0061, Train Acc: 0.9981, Val Acc: 0.9465
+Epoch [27/50] - Loss: 0.0093, Train Acc: 0.9970, Val Acc: 0.9795
+Epoch [28/50] - Loss: 0.0108, Train Acc: 0.9962, Val Acc: 0.9798
+Epoch [29/50] - Loss: 0.0071, Train Acc: 0.9978, Val Acc: 0.9734
+Epoch [30/50] - Loss: 0.0044, Train Acc: 0.9984, Val Acc: 0.9807
+Epoch [31/50] - Loss: 0.0063, Train Acc: 0.9979, Val Acc: 0.9700
+Epoch [32/50] - Loss: 0.0060, Train Acc: 0.9979, Val Acc: 0.9654
+Epoch [33/50] - Loss: 0.0041, Train Acc: 0.9987, Val Acc: 0.9839
+Epoch [34/50] - Loss: 0.0061, Train Acc: 0.9981, Val Acc: 0.9810
+Epoch [35/50] - Loss: 0.0015, Train Acc: 0.9996, Val Acc: 0.9836
+Epoch [36/50] - Loss: 0.0019, Train Acc: 0.9993, Val Acc: 0.9432
+Epoch [37/50] - Loss: 0.0147, Train Acc: 0.9951, Val Acc: 0.9776
+Epoch [38/50] - Loss: 0.0063, Train Acc: 0.9978, Val Acc: 0.9726
+Epoch [39/50] - Loss: 0.0046, Train Acc: 0.9984, Val Acc: 0.9747
+Epoch [40/50] - Loss: 0.0076, Train Acc: 0.9977, Val Acc: 0.9350
+Epoch [41/50] - Loss: 0.0087, Train Acc: 0.9971, Val Acc: 0.9827
+Epoch [42/50] - Loss: 0.0036, Train Acc: 0.9988, Val Acc: 0.9817
+Epoch [43/50] - Loss: 0.0022, Train Acc: 0.9993, Val Acc: 0.9825
+Epoch [44/50] - Loss: 0.0059, Train Acc: 0.9981, Val Acc: 0.8689
+Epoch [45/50] - Loss: 0.0062, Train Acc: 0.9979, Val Acc: 0.9786
+Epoch [46/50] - Loss: 0.0063, Train Acc: 0.9978, Val Acc: 0.9679
+Epoch [47/50] - Loss: 0.0059, Train Acc: 0.9979, Val Acc: 0.9817
+Epoch [48/50] - Loss: 0.0025, Train Acc: 0.9991, Val Acc: 0.9841
+Epoch [49/50] - Loss: 0.0032, Train Acc: 0.9989, Val Acc: 0.9841
+Epoch [50/50] - Loss: 0.0015, Train Acc: 0.9994, Val Acc: 0.9846
+Training completed in 93.00 minutes.
+Testing completed in 0.49 minutes.
+Accuracy: 0.9846, Precision: 0.9850, Recall: 0.9841, F1: 0.9845
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      0.98      0.98      4240
+           1       0.98      0.99      0.99      4782
+
+    accuracy                           0.98      9022
+   macro avg       0.99      0.98      0.98      9022
+weighted avg       0.98      0.98      0.98      9022
+
+Finetuned model saved to finetuned_models\resnet18_finetuned.pth
+
+Testing model: resnet18
+Testing completed in 0.34 minutes.
+Accuracy: 0.9546, Precision: 0.9530, Recall: 0.9559, F1: 0.9542
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.97      0.94      0.96       417
+           1       0.93      0.97      0.95       332
+
+    accuracy                           0.95       749
+   macro avg       0.95      0.96      0.95       749
+weighted avg       0.96      0.95      0.95       749
+
