@@ -8,6 +8,7 @@ import customCheck from '@images/svg/Check.svg'
 import customLaptop from '@images/svg/laptop.svg'
 import customLightbulb from '@images/svg/lightbulb.svg'
 
+
 definePage({
   // alias: '/pages/misc/not-authorized',
   meta: {
@@ -15,6 +16,14 @@ definePage({
     public: true,
   },
 })
+
+const investigationData = ref<any|null>(null)
+
+const investigationReady = (data: any) => {
+  console.log('data', data)
+  investigationData.value = data
+}
+
 
 // Donut Chart Colors
 const donutChartColors = {
@@ -203,11 +212,15 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
     <VRow class="match-height" >
 
       <VCol cols="12" md="4" sm="6" >
-        <AcademyUpcomingWebinar />
+        <AcademyUpcomingWebinar
+          @investigation-ready="investigationReady"
+        />
       </VCol>
 
       <VCol cols="12" md="8" >
-        <AcademyTopicYouAreInterested />
+        <AcademyTopicYouAreInterested
+          :investigation-data="investigationData"
+        />
       </VCol>
 
       <VCol cols="12" md="12" sm="12" >

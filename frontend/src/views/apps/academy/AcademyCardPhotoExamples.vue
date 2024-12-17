@@ -3,10 +3,10 @@ import avatar2 from '@images/avatars/avatar-2.png';
 
   const exampleImagesData = ref<Array<any>|null>(null)
 
-  axios.get('/api/investigations/')
-    .then((response) => {
-      exampleImagesData.value = response.data
-    })
+  // axios.get('/api/investigations/')
+  //   .then((response) => {
+  //     exampleImagesData.value = response.data
+  //   })
 
 </script>
 
@@ -14,7 +14,7 @@ import avatar2 from '@images/avatars/avatar-2.png';
   <VCard title="Примеры снимков для загрузки">
     <VCardText>
 
-      {{ exampleImagesData }}
+      <!-- {{ exampleImagesData }} -->
 
       <VAvatar size="54"
         color="primary"

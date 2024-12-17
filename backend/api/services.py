@@ -28,8 +28,8 @@ def semushina_yolov8n(model_file_path, image_path):
     predicted_class_index = results[0].probs.top1
     predicted_class_name = results[0].names[predicted_class_index]
     predicted_confidence = 100 * probs.top1conf.item()
-    if predicted_class_name == 'nowildfire':
-        predicted_confidence = 100 - predicted_confidence
+    # if predicted_class_name == 'nowildfire':
+    #     predicted_confidence = 100 - predicted_confidence
     return predicted_confidence, f"Класс: {predicted_class_name}, Вероятность пожара: {predicted_confidence:.2f}%"
 
 def forest_fire_KaterinaKuhne_yolov8n_cls(model_file_path, image_path):
@@ -39,8 +39,8 @@ def forest_fire_KaterinaKuhne_yolov8n_cls(model_file_path, image_path):
     predicted_class_index = results[0].probs.top1
     predicted_class_name = results[0].names[predicted_class_index]
     predicted_confidence = 100 * probs.top1conf.item()
-    if predicted_class_name == 'nowildfire':
-        predicted_confidence = 100 - predicted_confidence
+    # if predicted_class_name == 'nowildfire':
+    #     predicted_confidence = 100 - predicted_confidence
     return predicted_confidence, f"Класс: {predicted_class_name}, Вероятность пожара: {predicted_confidence:.2f}%"
 
 def Katrin_Pochtar_Wildfire_keras(model_file_path, image_path):

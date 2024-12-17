@@ -51,7 +51,10 @@ class InvestigationViewSet(ModelViewSet):
                 value, message = forest_fire_KaterinaKuhne_yolov8n_cls(lmodel.model_file.path, investigation.photo.path)
 
             elif lmodel.code == 'Katrin-Pochtar-Wildfire-keras':
-                value, message = Katrin_Pochtar_Wildfire_keras(lmodel.model_file.path, investigation.photo.path)
+                try:
+                    value, message = Katrin_Pochtar_Wildfire_keras(lmodel.model_file.path, investigation.photo.path)
+                except Exception as e:
+                    print('Локально не работает')
 
             elif lmodel.code == 'AndreyKotelnikov-resnet18_finetuned':
                 value, message = AndreyKotelnikov_resnet18_finetuned(lmodel.model_file.path, investigation.photo.path)

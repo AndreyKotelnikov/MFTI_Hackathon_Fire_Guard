@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from core.models import LearnigModel
 from core.models import Investigation
+from core.models import InvestigationValue
 from easy_thumbnails.files import get_thumbnailer
 
 class LearnigModelSerializer(serializers.ModelSerializer):
@@ -15,9 +16,27 @@ class LearnigModelSerializer(serializers.ModelSerializer):
         )
 
 
+
+class InvestigationValueSerializer(serializers.ModelSerializer):
+
+    model_name = serializers.CharField(source='lmodel.name', read_only=True)
+
+    class Meta:
+        model = InvestigationValue
+
+        fields = (
+            'id',
+            'value',
+            'lmodel',
+            'model_name',
+            'message'
+        )
+
+
 class InvestigationSerializer(serializers.ModelSerializer):
     preview = serializers.SerializerMethodField()
-    # owner_id = serializers.CharField(required=False, allow_null=True, source='owner.id')
+    values_detail = InvestigationValueSerializer(source='values', required=False, allow_null=True, read_only=True, many=True)
+
     class Meta:
         model = Investigation
         fields = (
@@ -26,7 +45,8 @@ class InvestigationSerializer(serializers.ModelSerializer):
             'preview',
             # 'lmodel',
             # 'result',
-            'value_mean'
+            'value_mean',
+            'values_detail'
         )
 
     def create(self, validated_data):

@@ -33,7 +33,9 @@ class Investigation(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.photo.file.name + str(self.created)
+        filename = self.photo.file.name
+        filename = filename.split('/')[-1:][0] if '/' in filename else filename
+        return str(self.created) + ' ' + filename
 
 
 class InvestigationValue(models.Model):

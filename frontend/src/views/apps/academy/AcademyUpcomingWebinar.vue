@@ -1,5 +1,8 @@
 <script setup lang="ts">
+
+import UploadPhoto from '@/components/UploadPhoto.vue';
 import girlWithLaptop from '@images/illustrations/laptop-girl.png';
+
 </script>
 
 <template>
@@ -21,7 +24,7 @@ import girlWithLaptop from '@images/illustrations/laptop-girl.png';
         </div>
         <div class="d-flex justify-space-between my-4 flex-wrap gap-4">
           <div
-            v-for="{ icon, title, value } in [{ icon: 'tabler-calendar', title: '17 ноября 24', value: 'Date' }, { icon: 'tabler-clock', title: '32 минуты', value: 'Время' }]"
+            v-for="{ icon, title, value } in [{ icon: 'tabler-calendar', title: 'Загружено:', value: '87 фото' }, { icon: 'tabler-clock', title: 'Обнаружено:', value: '67 пожаров' }]"
             :key="title"
             class="d-flex gap-x-3 align-center"
           >
@@ -45,9 +48,9 @@ import girlWithLaptop from '@images/illustrations/laptop-girl.png';
             </div>
           </div>
         </div>
-        <VBtn block>
-          Загрузить снимки
-        </VBtn>
+        <UploadPhoto api-url="/api/investigations/"
+          @uploaded="$emit('investigation-ready', $event)"
+        />
       </div>
     </VCardText>
   </VCard>
