@@ -1,0 +1,2 @@
+from rest_framework import serializers
+from easy_thumbnails.files import get_thumbnailer
