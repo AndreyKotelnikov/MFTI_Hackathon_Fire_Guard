@@ -25,13 +25,24 @@ class Investigation(models.Model):
         verbose_name = 'Исследование'
         verbose_name_plural = 'Исследования'
 
-    lmodel = models.ForeignKey('LearnigModel', verbose_name="Обучаемая модель", related_name="investigations", null=True, blank=True, on_delete=models.SET_NULL)
+    # lmodel = models.ForeignKey('LearnigModel', verbose_name="Обучаемая модель", related_name="investigations", null=True, blank=True, on_delete=models.SET_NULL)
     photo = models.ImageField(verbose_name="Исследуемое фото", upload_to='photos')
     photo_out = models.ImageField(verbose_name="Фото-результат", upload_to='photos_out')
-    result = models.TextField(verbose_name="Результат", null=False, blank=True)
-    value = models.PositiveIntegerField(verbose_name="Вероятность", default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # result = models.TextField(verbose_name="Результат", null=False, blank=True)
+    value_mean = models.PositiveIntegerField(verbose_name="Средняя вероятность", default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(100)])
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.lmodel.__str__() if self.lmodel else 'Investigation ' + str(self.created)
+        return self.photo.file.name + str(self.created)
 
+
+class InvestigationValue(models.Model):
+
+    class Meta:
+        verbose_name = 'Значение исследования'
+        verbose_name_plural = 'Значения исследований'
+
+    lmodel = models.ForeignKey('LearnigModel', verbose_name="Обучаемая модель", related_name="investigation_values", null=True, blank=True, on_delete=models.SET_NULL)
+    investigation = models.ForeignKey('Investigation', verbose_name="Исследование", related_name="values", null=True, blank=True, on_delete=models.SET_NULL)
+    message = models.TextField(verbose_name="Результат словами", null=False, blank=True)
+    value = models.PositiveIntegerField(verbose_name="Вероятность", default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(100)])

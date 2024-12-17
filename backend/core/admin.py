@@ -15,5 +15,5 @@ class LearnigModelAdmin(admin.ModelAdmin):
 @admin.register(Investigation)
 class InvestigationAdmin(admin.ModelAdmin):
     list_display = [
-        'lmodel', 'created',
+        'created', 'photo',
     ]
