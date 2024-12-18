@@ -39,7 +39,7 @@ FireGuard в режиме реального времени обрабатыва
 - **Фреймворк**: Keras (бэкенд TensorFlow).
 
 ### 3. [**resnet18-finetuned**](https://github.com/AndreyKotelnikov/MFTI_Hackathon_Fire_Guard/blob/master/notebooks/resnet18-finetuned/README.md)
-- **Описание**: Дообучает предварительно обученную модель ResNet18 для бинарной классификации (пожар против нет пожара).
+- **Описание**: Дообучает предварительно обученную на наборе данных ImageNet (1k классов) модель **ResNet18** для бинарной классификации (пожар / нет пожара).
 - **Цель**: Использует transfer learning для достижения высокой точности при ограниченных данных.
 - **Фреймворк**: PyTorch.
 
@@ -151,5 +151,6 @@ FireGuard/
   - Марина Семушина semushinamarina@yandex.ru
   - Екатерина Цыбина spellful.mail@gmail.com
   - Алексей Зырянов lexgp@yandex.ru
+  - Андрей Котельников Dragon1983@yandex.ru
 
 
