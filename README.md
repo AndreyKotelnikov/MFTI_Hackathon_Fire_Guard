@@ -146,5 +146,6 @@ FireGuard/
 ## Авторы, группа 13, emails:
   - Катрин Почтар katrindarart@gmail.com
   - Марина Семушина semushinamarina@yandex.ru
+  - Екатерина Цыбина spellful.mail@gmail.com
 
 
