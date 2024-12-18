@@ -134,9 +134,19 @@ FireGuard/
    - Выполняйте ячейки пошагово для обучения моделей.
 
 5. **Развёртывание моделей**
-   - Используйте директорию `backend/` для настройки API инференса.
-   - Настройте фронтенд для визуализации в реальном времени.
-
+   - Используйте директорию `backend/` для запуска API инференса.
+     ```bash
+     python3 -m venv ./venv
+     source venv/bin/activate
+     pip3 install -r requirements.txt
+     python3 manage.py migrate
+     python3 manage.py runserver
+     ```
+   - Настройте фронтенд для визуализации в реальном времени (требуется установка nodejs 20+ версии).
+     ```bash
+     npm i
+     npm run dev
+     ```
 ---
 
 ## Участие в разработке
