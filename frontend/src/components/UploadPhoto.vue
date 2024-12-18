@@ -3,7 +3,7 @@
     <VBtn block @click="$refs.file?.click()"
       :loading="isProcessing"
     >
-      Загрузить снимки
+      Загрузить снимок
     </VBtn>
 
     <input
