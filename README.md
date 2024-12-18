@@ -148,5 +148,6 @@ FireGuard/
   - Катрин Почтар katrindarart@gmail.com
   - Марина Семушина semushinamarina@yandex.ru
   - Екатерина Цыбина spellful.mail@gmail.com
+  - Алексей Зырянов lexgp@yandex.ru
 
 
