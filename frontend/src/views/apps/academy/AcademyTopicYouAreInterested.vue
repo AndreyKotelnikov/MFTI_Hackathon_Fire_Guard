@@ -195,7 +195,7 @@ const topicsData = computed(() => {
             <div class="px-4 py-4">
               <h4>Средневзвешенная вероятность: {{ investigationData.value_mean }}%</h4>
               <p v-if="investigationData.value_mean >= 50" class="text-error">Вероятно есть пожар</p>
-              <p v-else class="text-success">Вероятно есть пожар</p>
+              <p v-else class="text-success">Вероятно пожара нет</p>
             </div>
           </div>
         </VCol>
